@@ -12,7 +12,7 @@ class CreateUserService {
         try {
             //verifcar se ele enviou um email
             if(!email){
-                throw 'Email incorrect';
+                throw new Error('Email incorrect');
             }
 
             const userAlreadyExists = await prismaClient.user.findFirst({
@@ -22,7 +22,7 @@ class CreateUserService {
             })
 
             if(userAlreadyExists){
-                throw 'User already exists';
+                throw new Error('User already exists');
             }
             
             const passwordHash = await hash(password, 8)
