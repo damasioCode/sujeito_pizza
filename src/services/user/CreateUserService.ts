@@ -43,7 +43,7 @@ class CreateUserService {
             return user;
 
         } catch(error) {
-            return { message: error.message}
+            return { message: error.message }
         }
         
 
